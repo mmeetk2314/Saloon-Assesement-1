@@ -1,0 +1,60 @@
+﻿@page
+@model Saloon_Assesement_1.Pages.Beauticians.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Beautician[0].Beautician_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Beautician[0].Contact_Number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Beautician[0].Joining_Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Beautician[0].Salary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Beautician[0].Parlour_obj)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Beautician) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Beautician_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contact_Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Joining_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Parlour_obj.Parlour_ID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Beautician_ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Beautician_ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Beautician_ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

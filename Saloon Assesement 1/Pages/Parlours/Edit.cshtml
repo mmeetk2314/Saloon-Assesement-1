@@ -1,0 +1,45 @@
+﻿@page
+@model Saloon_Assesement_1.Pages.Parlours.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Parlour</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Parlour.Parlour_ID" />
+            <div class="form-group">
+                <label asp-for="Parlour.Parlour_Name" class="control-label"></label>
+                <input asp-for="Parlour.Parlour_Name" class="form-control" />
+                <span asp-validation-for="Parlour.Parlour_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Parlour.Parlour_Address" class="control-label"></label>
+                <input asp-for="Parlour.Parlour_Address" class="form-control" />
+                <span asp-validation-for="Parlour.Parlour_Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Parlour.Contact_Number" class="control-label"></label>
+                <input asp-for="Parlour.Contact_Number" class="form-control" />
+                <span asp-validation-for="Parlour.Contact_Number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
